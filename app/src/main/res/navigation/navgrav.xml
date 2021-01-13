@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgrav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/scaningFragment"
+        android:name="com.example.qrcodescanner.ScaningFragment"
+        android:label="fragment_scaning"
+        tools:layout="@layout/fragment_scaning" >
+        <action
+            android:id="@+id/action_scaningFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+        <action
+            android:id="@+id/action_scaningFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_scaningFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="com.example.qrcodescanner.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web" >
+        <action
+            android:id="@+id/action_webFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="currentmodel"
+            app:argType="com.example.qrcodescanner.data.Model" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.qrcodescanner.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_scaningFragment"
+            app:destination="@id/scaningFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saveFragment"
+        android:name="com.example.qrcodescanner.SaveFragment"
+        android:label="fragment_save"
+        tools:layout="@layout/fragment_save" >
+        <action
+            android:id="@+id/action_saveFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+        <action
+            android:id="@+id/action_saveFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
